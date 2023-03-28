@@ -238,7 +238,13 @@ install_bins() {
   if $PNPM; then
     meta_set "build-step" "install-pnpm"
     echo "Downloading and installing pnpm..."
-    npm install -g pnpm
+    if [[ ! -v PNPM_VERSION]]; then
+      echo "No pnpm version specified, using latest"
+      npm install -g pnpm
+    else
+      echo "Using pnpm version $PNPM_VERSION"
+      npm install -g pnpm@$PNPM_VERSION
+    fi
     pnpm config set store-dir "$CACHE_DIR"/.pnpm-store
     echo "pnpm $(pnpm --version) installed"
   fi
