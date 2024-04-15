@@ -1,5 +1,7 @@
 # PNPM compatible Buildpack for Heroku and Node.js
 
+## ⚠️ NOTE: This buildpack is deprecated because the official Heroku NodeJS buildpack [will be supporting PNPM soon](https://github.com/heroku/heroku-buildpack-nodejs/issues/688#issuecomment-2056845874)!
+
 This is an unofficial buildpack for the official [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Node.js apps. This version was forked from https://github.com/unfold/heroku-buildpack-pnpm to fix issues with `devDependencies` when building Typescript projects.
 
 It supports pnpm in addition to yarn/npm. As long as the root of your project contains a `pnpm-lock.yaml` file, PNPM will be used to install all dependencies.
